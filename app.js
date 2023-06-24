@@ -1,0 +1,64 @@
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const fs = require('fs');
+const app = express();
+const port = 3000;
+
+// Middleware for parsing request bodies
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve static files
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, 'about.html'));
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(__dirname, 'form.html'));
+});
+
+app.get('/form', (req, res) => {
+  res.sendFile(path.join(__dirname, 'form.html'));
+});
+
+app.get('/success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'success.html'));
+});
+
+// Handle form submission
+app.post('/submit_inquiry', (req, res) => {
+  // Extract the form data
+  const { name, location, email, tel, option, message } = req.body;
+
+  // Create a text representation of the form data
+  const formData = `
+    Name: ${name}
+    Location: ${location}
+    Email: ${email}
+    phone: ${tel}
+    Option: ${option}
+    Message: ${message}
+  `;
+
+  // Save the form data to a text file
+  fs.appendFile('form_data.txt', formData, (err) => {
+    if (err) {
+      console.error('Error saving form data:', err);
+      res.status(500).send('Error saving form data');
+    } else {
+      console.log('Form data saved successfully');
+      res.redirect('/success'); // Redirect to a success page
+    }
+  });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});

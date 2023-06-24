@@ -1,0 +1,72 @@
+
+    Name: dhubhsm
+    Location: delhi
+    Email: w2@gmial.com
+    phone: 8076553661
+    Option: buy
+    Message: sqwderfgth
+  
+    Name: shubha
+    Location: delhi
+    Email: shubhamwee@gmial.com
+    phone: 8076553661
+    Option: buy
+    Message: qwm  nehty
+  
+    Name: m
+    Location: admibn
+    Email: k@gail.com
+    phone: 8076553661
+    Option: rent
+    Message: mnbeswar
+  
+    Name: shubham
+    Location: pawai
+    Email: nigg@gmial.com
+    phone: 807655999
+    Option: buy
+    Message: fire hun mai
+  
+    Name: RAJ
+    Location: Delhi
+    Email: shubham@gmail.com
+    phone: 9873549676
+    Option: buy
+    Message: I want to buy Property
+  
+    Name: Yuvraj
+    Location: New delhi
+    Email: yuvrajsingh@gmail.com
+    phone: 123456789
+    Option: buy
+    Message: I want to buy a property
+  
+    Name: jitender
+    Location: asia
+    Email: arjun@gmail.com
+    phone: 666655521
+    Option: buy
+    Message: hdfhdhg
+  
+    Name: kachi
+    Location: delhi
+    Email: k@gail.com
+    phone: 8076553661
+    Option: sale
+    Message: aa hi f
+  
+    Name: anjani
+    Location: shubham
+    Email: cool@mail.com
+    phone: 8368250189
+    Option: rent
+    Message: hi
+
+  
+    Name: shuvbhjjdk
+    Location: cd,dqjklie
+    Email: sbhuvan455@cmail.com
+    phone: 33654697
+    Option: rent
+    Message: l;kopwjwtfc
+  

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.5;
+      background-color: #1c1c1c;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header styles */
+    header {
+      background-color: #000;
+      padding: 10px 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    #menuToggle {
+      display: none;
+    }
+
+    #menuToggle span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 5px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    #menuToggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    #menuToggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    #menuToggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    #menu {
+      display: flex;
+      list-style: none;
+    }
+
+    #menu li {
+      margin-left: 20px;
+    }
+
+    #menu li a {
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      /* background-color: lime; */
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    #menu li a:hover {
+      text-decoration: none;
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: lime;
+      transition: transform 0.3s, box-shadow 0.3s;
+      transform: translate(0, -5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hero section styles */
+    .hero {
+      background-image: url('hero-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .hero-content h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      background-color: lime;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translate(0, -5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /*
+.featured-products {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    width: 300px;
+    margin: 0 20px 40px;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}*/
+    .newsletter {
+      background-color: #ffee33;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .newsletter form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      width: 70%;
+      border-radius: 5px 0 0 5px;
+      border: none;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      background-color: #fff;
+      color: lime;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .newsletter button:hover {
+      transform: translate(0, -5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    footer {
+      background-color: #333;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      margin-right: 20px;
+    }
+
+    .social-link {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #fff;
+      color: #333;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-size: 18px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .social-link:hover {
+      background-color: #00cc00;
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+    .article-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .article-link {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+      transition: color 0.3s;
+    }
+
+    .article-link:hover {
+      color: #00cc00;
+    }
+
+    .footer-text {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    /* Media queries for responsiveness */
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-wrap: wrap;
+      }
+
+      .logo img {
+        margin-right: 10px;
+      }
+
+      .logo h1 {
+        font-size: 18px;
+      }
+
+      #menuToggle {
+        display: block;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #menu {
+        display: none;
+        flex-direction: column;
+      }
+
+      #menu.open {
+        display: flex;
+      }
+
+      #menu li {
+        margin: 10px 0;
+      }
+
+      .footer-links {
+        flex-direction: column;
+      }
+
+      .social-links {
+        margin-bottom: 10px;
+      }
+
+      .social-link {
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #000;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .footer-link {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    .footer-link:hover {
+      color: #999;
+    }
+
+    .footer-text {
+      color: #999;
+      font-size: 14px;
+    }
+
+    .social-link {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background-color: #fff;
+      color: #333;
+      text-align: center;
+      border-radius: 5px;
+      margin-right: 15px;
+      font-size: 20px;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+
+
+
+
+
+
+    /* CSS for featured product section */
+    .featured-product {
+      /* display: flex; */
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .featured-product img {
+      width: 200px;
+      height: auto;
+
+    }
+
+    .featured-product .product-info {
+      margin-left: 20px;
+
+    }
+
+    .featured-product h2 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #c0aaaa;
+
+    }
+
+    .featured-product p {
+      font-size: 16px;
+      color: #666;
+
+    }
+
+    .featured-product .cta-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .featured-product .cta-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Media Query for responsive design */
+    @media (max-width: 768px) {
+      .featured-product {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .featured-product img {
+        margin-bottom: 10px;
+      }
+
+      .featured-product .product-info {
+        margin: 0;
+      }
+    }
+  </style>
+
+  <title>best property</title>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">
+        <!-- <img src="logo-pdf-1-removebg-preview.png" > -->
+        <h1>Alliance Infratech</h1>
+
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <!-- <li><a href="/"></a></li> -->
+          <li><a href="/">CONTACT US</a></li>
+
+
+        </ul>
+        <div id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Welcome to Alliance Infratech</h1>
+        <p>Best Home in South Delhi</p>
+        <a href="form.html" class="btn">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section class="newsletter">
+    <div class="container">
+      <h2>Subscribe to Our Newsletter</h2>
+      <form id="newsletterForm">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="article-links">
+          <a href="#" class="article-link">Article 1</a>
+          <a href="#" class="article-link">Article 2</a>
+          <a href="#" class="article-link">Article 3</a>
+        </div>
+      </div>
+      <p class="footer-text">&copy; 2023 DEAN DENVER. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // Menu toggle functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', function () {
+      menuToggle.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+  </script>
+</body>
+
+</html>
